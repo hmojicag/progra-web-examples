@@ -1,0 +1,23 @@
+@page "{id?}"
+@model SongModel
+@{
+    ViewData["Title"] = "Song Details";
+}
+
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6 text-center">
+        @if (Model.Song == null) {
+            <h1>We didn't find that song</h1>   
+        } else {
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="@Model.Song.AlbumCoverURL" alt="@Model.Song.Name">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Song.Id - @Model.Song.Name</h5>
+                    <p class="card-text">From artist @Model.Song.Artist on album @Model.Song.Album</p>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-lg-3"></div>
+</div>
