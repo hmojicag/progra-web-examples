@@ -1,0 +1,58 @@
+﻿@page
+@model MusicModel
+@{
+    ViewData["Title"] = "List of Music";
+}
+
+<div class="row">
+    <div class="col-lg-3">
+        <h3>Filters</h3>
+        <form method="get">
+            @if (Model.SongFilters.Name != null) {
+                <input type="text" name="Name" class="form-control form-control-sm filter-controls" value="@Model.SongFilters.Name" placeholder="Name contains"/>   
+            } else {
+                <input type="text" name="Name" class="form-control form-control-sm filter-controls" placeholder="Name contains"/>
+            }
+
+            @if (Model.SongFilters.Album != null) {
+                <input type="text" name="Album" class="form-control form-control-sm filter-controls" value="@Model.SongFilters.Album" placeholder="Album contains"/>
+            } else {
+                <input type="text" name="Album" class="form-control form-control-sm filter-controls" placeholder="Album contains"/>
+            }
+            
+            @if (Model.SongFilters.Artist != null) {
+                <input type="text" name="Artist" class="form-control form-control-sm filter-controls" value="@Model.SongFilters.Artist" placeholder="Artist contains"/>
+            } else {
+                <input type="text" name="Artist" class="form-control form-control-sm filter-controls" placeholder="Artist contains"/>
+            }
+            
+            <input type="submit" class="btn btn-primary mb-2 filter-controls" value="Filter"/>
+        </form>
+        <a asp-page="/Music">Clean Filters</a>
+    </div>
+    <div class="col-lg-6">
+        <h1>@Model.PageTitle</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Song Name</th>
+                <th scope="col">Album</th>
+                <th scope="col">Artist</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var song in Model.Songs) {
+                <tr>
+                    <th scope="row">@song.Id</th>
+                    <td>@song.Name</td>
+                    <td>@song.Album</td>
+                    <td>@song.Artist</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-3"></div>
+</div>

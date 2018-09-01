@@ -1,0 +1,20 @@
+@page
+@model NewModel
+@{
+    ViewData["Title"] = "New Music page";
+}
+
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <h1>Create new Song</h1>
+        <form method="post">
+            <input type="text" name="songName" class="form-control form-control-lg filter-controls" placeholder="Song Name"/><br />
+            <input type="text" name="album" class="form-control form-control-lg filter-controls" placeholder="Album"/><br />
+            <input type="text" name="artist" class="form-control form-control-lg filter-controls" placeholder="Artist"/><br />
+            <input type="submit" class="btn btn-primary mb-2 filter-controls" value="Save Song"/>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
+
